@@ -1,0 +1,9 @@
+suite_namespace: frontend\tests\acceptance
+actor: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://localhost/proyectosYii2/ExRestaurantBDD/frontend/web
+            browser: firefox
+        - Yii2:
+            part: init
