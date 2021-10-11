@@ -6,4 +6,13 @@ modules:
             url: http://localhost/proyectosYii2/ExRestaurantBDD/frontend/web
             browser: firefox
         - Yii2:
-            part: init
+            transaction: true
+            cleanup: true
+            part: 
+                - init
+                - fixtures
+gherkin:
+    contexts:
+        default:
+            - frontend\tests\AcceptanceTester
+            - frontend\tests\AccesoSteps
