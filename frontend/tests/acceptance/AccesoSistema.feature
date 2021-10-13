@@ -22,4 +22,4 @@ Feature: AccesoSistema.feature
   And capturo "user@example.com" en el login
   And capturo "qwerty" en el password
   When Hago click en aceptar
-  Then Recibo el mensaje de error "user"
+  Then Veo en la barra de navegación el nombre del usuario "user"

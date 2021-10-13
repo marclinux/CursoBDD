@@ -59,4 +59,11 @@ class AccesoSteps
         $this->I->see($arg1);
     }
 
+    /**
+     * @Then Veo en la barra de navegación el nombre del usuario :arg1
+     */
+    public function veoEnLaBarraDeNavegacinElNombreDelUsuario($arg1)
+    {
+        $this->I->see($arg1);
+    }
 }
