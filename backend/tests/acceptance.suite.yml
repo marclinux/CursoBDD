@@ -6,4 +6,17 @@ modules:
             url: http://localhost/proyectosYii2/ExRestaurantBDD/backend/web
             browser: firefox
         - Yii2:
-            part: init
+            #transaction: true
+            #cleanup: true
+            part: 
+                - init
+                - fixtures
+        - Db:
+            dsn: 'mysql:host=localhost;dbname=exrestauranttest'
+            user: 'root'
+            password: 'Mysqlexpea2021'
+gherkin:
+    contexts:
+        default:
+            - backend\tests\AcceptanceTester
+            - backend\tests\CategoriasSteps
