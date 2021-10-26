@@ -7,3 +7,6 @@ paths:
     log: console/runtime/logs
 settings:
     colors: true
+extensions:
+    enabled:
+        - Codeception\Extension\DotReporter
