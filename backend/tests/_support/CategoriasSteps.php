@@ -2,6 +2,7 @@
 namespace backend\tests;
 
 use Codeception\Util\Locator;
+use common\fixtures\CategoriasFixture;
 use yii\helpers\Url;
 
 class CategoriasSteps
@@ -10,6 +11,12 @@ class CategoriasSteps
     public function __construct(AcceptanceTester $I)
     {
         $this->I = $I;
+        $this->I->haveFixtures([
+            'categorias' => [
+                'class' => CategoriasFixture::class,
+                'dataFile' => codecept_data_dir() . 'categorias_data.php',
+            ],
+        ]);
     }
 
     /**
@@ -17,7 +24,7 @@ class CategoriasSteps
      */
      public function queEstoyEnLaPaginaDeCrearCategoria()
      {
-         $this->I->amOnPage(Url::toRoute('/categorias/creatr'));
+         $this->I->amOnPage(Url::toRoute('/categorias/create'));
      }
 
     /**
@@ -50,6 +57,7 @@ class CategoriasSteps
      public function doyClickEn($arg1)
      {
          $this->I->click($arg1);
+         $this->I->wait(3);
      }
 
     /**
@@ -74,7 +82,7 @@ class CategoriasSteps
      */
      public function deboTenerLosDatosDeEnLaClaveEnLaDescripcionDeLaCategoriaConId($arg1, $arg2, $arg3)       
      {
-        $this->I->seeInDatabase('categorias', ['ClaveCategoria' => $arg1, 'NombreCategoria' => $arg2, 'idCategoriaPadre' => $arg3]);
+        $this->I->seeInDatabase('categorias', ['ClaveCategoria' => $arg1, 'NombreCategoria' => $arg2, 'id' => $arg3]);
      }
 
     /**
@@ -99,7 +107,9 @@ class CategoriasSteps
      */
      public function confirmoEliminarElRegistro()
      {
-        $this->I->click('Si');
+        $this->I->wait(3);
+        $this->I->acceptPopup();
+        $this->I->wait(3);
      }
 
     /**
